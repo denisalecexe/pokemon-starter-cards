@@ -3,14 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./assets/favicon/favicon.png" type="image/x-icon">
+    <link rel="icon" href="./assets/favicon/poke-fav.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./styles/style.css">
-    <title></title>
+    <title>Starter Card Pokemon (Gen 1)</title>
 </head>
 <body>
-    
+    <!-- HEADER DEL SITO -->
+    <div class="header">
+        <img src="/src/assets/logo/pokemon-logo-pixel.png" alt="immagine in pixel art del logo di pokemon senza sfondo">
+    </div>
+
+    <!-- PAGINA CENTRALE DEL SITO PER LE CARTE -->
+    <!-- contenitore della pagina centrale -->
+    <div class="card-starter">
+        <!-- header della pagina centrale che introduce alla scelta del pokemon -->
+        <div class="header-body">
+            <img src="./assets/img/character-pixel.png" alt="immagine di un allenatore standard pokemon in pixel art senza sfondo">
+            <p>Choose your starter pokemon:</p>
+        </div>
+
+        <!-- contenitore delle carte -->
+        <div class="card-wrapper">
+            <!-- contenitore img1 starter squirtle -->
+            <div class="box-card squirtle">
+                <img src="./assets/img/squirtle-pixel.png" alt="immagine in pixel art senza sfondo di squirtle">
+            </div>
+
+            <!-- contenitore img2 starter charmeleon -->
+            <div class="box-card charmeleon">
+                <img src="./assets/img/charmeleon-pixel.png" alt="immagine in pixel art senza sfondo di charmeleon">
+            </div>
+
+            <!-- contenitore img3 starter bulbasaur -->
+            <div class="box-card bulbasaur">
+                <img src="./assets/img/bulbasaur-pixel.png" alt="immagine in pixel art senza sfondo di bulbasaur">
+            </div>
+
+            <!-- contenitore img4 starter pikachu -->
+            <div class="box-card pikachu">
+                <img src="./assets/img/pikachu-pixel.png" alt="immagine in pixel art senza sfondo di pikachu">
+            </div>
+        </div>
+    </div>
+
+
+
     <script src="./js/script.js"></script>
 </body>
 </html>
