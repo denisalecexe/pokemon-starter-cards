@@ -2,7 +2,7 @@
     --header-bg: #0063e6;
     --card-wrapper-bg: #cccccc;
     --bg-squirtle: #23f5f5;
-    --bg-charmeleon: #fc7100;
+    --bg-charmander: #fc7100;
     --bg-bulbasaur: #66fc48;
     --border-card: #fefffe;
     --scrollbar-border: #fffe54;
@@ -12,7 +12,7 @@
 
 /* UNIVERSAL TAG */
 * {
-    cursor: url('/src/assets/cursor/poke-cursor.cur'), auto;
+    cursor: url('/src/assets/cursor/pokeball-cursor.cur'), auto;
 }
 
 /* TAG ELEMENT */
@@ -24,7 +24,7 @@ body {
 /* ID */
 #header {
     width: 100%;
-    max-height: 280px;
+    max-height: 300px;
     background: var(--header-bg);
     display: flex;
     justify-content: center;
@@ -32,7 +32,11 @@ body {
 
 /* CLASS */
 .logo {
-    max-width: 250px;
+    max-width: 280px;
+}
+
+.logo:hover {
+    cursor: url('/src/assets/cursor/mega-pokeball-cursor.cur'), auto;
 }
 
 /* SCROLBAR CSS */
@@ -41,13 +45,13 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    cursor: url('/src/assets/cursor/poke-cursor.cur'), auto;
+    cursor: url('/src/assets/cursor/pokeball-cursor.cur'), auto;
     background: var(--bg-scrollbar-thumb);
     border: 1px solid var(--scrollbar-border);
     border-radius: 2px;
 }
 
 ::-webkit-scrollbar-track {
-    cursor: url('/src/assets/cursor/poke-cursor.cur'), auto;
+    cursor: url('/src/assets/cursor/pokeball-cursor.cur'), auto;
     background: var(--bg-scrollbar-track);
 }
