@@ -1,6 +1,7 @@
 :root {
     --header-bg: #0063e6;
-    --card-wrapper-bg: #cccccc;
+    --bg-body-page: #cccccc;
+    --border-character: #eb1122;
     --bg-squirtle: #23f5f5;
     --bg-charmander: #fc7100;
     --bg-bulbasaur: #66fc48;
@@ -12,16 +13,20 @@
 
 /* UNIVERSAL TAG */
 * {
+    box-sizing: border-box;
     cursor: url('/src/assets/cursor/pokeball-cursor.cur'), auto;
 }
 
 /* TAG ELEMENT */
 body {
-    box-sizing: border-box;
     margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* ID */
+/* stile specifico per l'header della pagina */
 #header {
     width: 100%;
     max-height: 300px;
@@ -30,7 +35,17 @@ body {
     justify-content: center;
 }
 
+/* stile specifico per il contenuto della pagina */
+#body-page-content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    background: var(--bg-body-page);
+}
+
 /* CLASS */
+/* stile specifico per il logo dell'header */
 .logo {
     max-width: 280px;
 }
@@ -39,7 +54,29 @@ body {
     cursor: url('/src/assets/cursor/mega-pokeball-cursor.cur'), auto;
 }
 
+/* stile dell'header del body */
+.header-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.character-header-wrapper {
+    width: 200px;
+}
+
+.character-header-wrapper:hover {
+    filter: drop-shadow(0 0 10px var(--border-character));
+}
+
+.text-header-wrapper {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
 /* SCROLBAR CSS */
+/* stile specifico per la scroll bar del sito */
 ::-webkit-scrollbar {
     width: 12px;
 }
