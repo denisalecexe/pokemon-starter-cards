@@ -2,9 +2,18 @@
     --header-bg: #0063e6;
     --bg-body-page: #cccccc;
     --border-character: #eb1122;
-    --bg-squirtle: #23f5f5;
-    --bg-charmander: #fc7100;
-    --bg-bulbasaur: #66fc48;
+    --bg-squirtle-1: #23f5f5;
+    --bg-squirtle-2: #0fbdbd;
+    --bg-squirtle-3: #077e7e;
+    --bg-charmander-1: #fc7100;
+    --bg-charmander-2: #b1560b;
+    --bg-charmander-3: #924506;
+    --bg-bulbasaur-1: #66fc48;
+    --bg-bulbasaur-2: #34bd19;
+    --bg-bulbasaur-3: #239c0b;
+    --bg-pikachu-1: #ffe600;
+    --bg-pikachu-2: #bdab09;
+    --bg-pikachu-3: #a18a02;
     --border-card: #fefffe;
     --scrollbar-border: #fffe54;
     --bg-scrollbar-track: #3353b6;
@@ -73,6 +82,55 @@ body {
     font-size: 20px;
     display: flex;
     align-items: center;
+}
+
+/* stile delle carte */
+/* stile del contenitore wrapper */
+.card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* stile generale delle carte */
+.box-card {
+    height: 400px;
+    width: 300px;
+    border: 3px solid var(--border-card);
+    border-radius: 10px;
+}
+
+/* stili specidici delle carte */
+.squirtle {
+    background: linear-gradient(45deg, var(--bg-squirtle-1), var(--bg-squirtle-2), var(--bg-squirtle-3));
+}
+
+.charmander {
+    background: linear-gradient(45deg, var(--bg-charmander-1), var(--bg-charmander-2), var(--bg-charmander-3));
+}
+
+.bulbasaur {
+    background: linear-gradient(45deg, var(--bg-bulbasaur-1), var(--bg-bulbasaur-2), var(--bg-bulbasaur-3));
+}
+
+.pikachu {
+    background: linear-gradient(45deg, var(--bg-pikachu-1), var(--bg-pikachu-2), var(--bg-pikachu-3));
+}
+
+/* stile testo dei nomi dei pokemon */
+.name-pokemon-card {
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+/* stile generale delle immagini delle carte */
+.card-img {
+    padding: 5px;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
 }
 
 /* SCROLBAR CSS */
