@@ -1,3 +1,15 @@
+:root {
+    --header-bg: #0063e6;
+    --card-wrapper-bg: #cccccc;
+    --bg-squirtle: #23f5f5;
+    --bg-charmeleon: #fc7100;
+    --bg-bulbasaur: #66fc48;
+    --border-card: #fefffe;
+    --scrollbar-border: #fffe54;
+    --bg-scrollbar-track: #3353b6;
+    --bg-scrollbar-thumb: #eb3122;
+}
+
 /* UNIVERSAL TAG */
 * {
     cursor: url('/src/assets/cursor/poke-cursor.cur'), auto;
@@ -9,8 +21,33 @@ body {
     margin: 0;
 }
 
-/* CLASS */
-
-
 /* ID */
+#header {
+    width: 100%;
+    max-height: 280px;
+    background: var(--header-bg);
+    display: flex;
+    justify-content: center;
+}
 
+/* CLASS */
+.logo {
+    max-width: 250px;
+}
+
+/* SCROLBAR CSS */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    cursor: url('/src/assets/cursor/poke-cursor.cur'), auto;
+    background: var(--bg-scrollbar-thumb);
+    border: 1px solid var(--scrollbar-border);
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-track {
+    cursor: url('/src/assets/cursor/poke-cursor.cur'), auto;
+    background: var(--bg-scrollbar-track);
+}
