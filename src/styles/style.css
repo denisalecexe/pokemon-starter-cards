@@ -78,6 +78,7 @@ body {
     font-size: 20px;
     display: flex;
     align-items: center;
+    font-family: '8_bit', sans-serif;
 }
 
 /* stile delle carte */
@@ -94,6 +95,7 @@ body {
     width: 300px;
     border: 3px solid var(--border-card);
     border-radius: 10px;
+    padding: 10px 5px;
 }
 
 /* stili specidici delle carte */
@@ -111,6 +113,16 @@ body {
 
 .pikachu {
     background: linear-gradient(45deg, var(--bg-pikachu-1), var(--bg-pikachu-2), var(--bg-pikachu-3));
+}
+
+.name-pokemon-card {
+    font-family: '8_bit', sans-serif;
+    text-align: center;
+}
+
+.card-img {
+    border: 1px solid #0000007c;
+    background: #0000007c;
 }
 
 .name-pokemon-card,
@@ -167,4 +179,17 @@ body {
 ::-webkit-scrollbar-track {
     cursor: url('/src/assets/cursor/pokeball-cursor.cur'), auto;
     background: var(--bg-scrollbar-track);
+}
+
+/* RULE FONT-FACE CSS PER I FONT DEL SITO */
+/* FONT FACE 1 */
+@font-face {
+    font-family: '8_bit';
+    src: url('/src/assets/font/8-bit-font/8-bit-font.woff');
+}
+
+/* FONT FACE 2 */
+@font-face {
+    font-family: 'Pixel_Sans_Serif_Regular';
+    src: url('/src/assets/font/Pixel-Sans-Serif-Regular/Pixel-Sans-Serif-font.ttf');
 }
