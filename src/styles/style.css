@@ -60,7 +60,7 @@ body {
 }
 
 .logo:hover {
-    cursor: url('/src/assets/cursor/mega-pokeball-cursor.cur'), auto;
+    cursor: url('/src/assets/cursor/megaball-cursor.cur'), auto;
 }
 
 /* stile dell'header del body */
@@ -115,42 +115,12 @@ body {
     background: linear-gradient(45deg, var(--bg-pikachu-1), var(--bg-pikachu-2), var(--bg-pikachu-3));
 }
 
-.name-pokemon-card {
-    font-family: '8_bit', sans-serif;
-    text-align: center;
-}
-
-.card-img {
-    border: 1px solid #0000007c;
-    background: #0000007c;
-}
-
-.name-pokemon-card,
-.card-img {
-    pointer-events: none;
-}
-
-/* hover delle card per i cursori */
-.squirtle:hover {
-    cursor: url('/src/assets/cursor/squirtle-cursor.cur'), auto;
-}
-
-.charmander:hover {
-    cursor: url('/src/assets/cursor/charmander-cursor.cur'), auto;
-}
-
-.bulbasaur:hover {
-    cursor: url('/src/assets/cursor/bulbasaur-cursor.cur'), auto;
-}
-
-.pikachu:hover {
-    cursor: url('/src/assets/cursor/pikachu-cursor.cur'), auto;
-}
-
 /* stile testo dei nomi dei pokemon */
 .name-pokemon-card {
     margin: 0 10px;
     font-size: 18px;
+    font-family: '8_bit', sans-serif;
+    text-align: center;
 }
 
 /* stile generale delle immagini delle carte */
@@ -161,7 +131,22 @@ body {
     object-fit: cover;
     object-position: center;
     border-radius: 12px;
+    border: 1px solid #0000007c;
+    background: #0000007c;
 }
+
+/* stile per il cursore delle carte */
+.name-pokemon-card,
+.card-img {
+    pointer-events: none;
+}
+
+.squirtle:hover,
+.charmander:hover,
+.bulbasaur:hover,
+.pikachu:hover {
+    cursor: url('/src/assets/cursor/ultraball-cursor.cur'), auto;
+} 
 
 /* SCROLBAR CSS */
 /* stile specifico per la scroll bar del sito */
