@@ -23,7 +23,6 @@
 /* UNIVERSAL TAG */
 * {
     box-sizing: border-box;
-    cursor: url('../assets/cursor/pokeball-cursor.cur'), auto;
 }
 
 /* TAG ELEMENT */
@@ -32,6 +31,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    cursor: url('../assets/cursor/pokeball-cursor.cur'), auto;
 }
 
 /* ID */
@@ -119,9 +119,23 @@ body {
 
 /* stile testo dei nomi dei pokemon */
 .name-pokemon-card {
-    margin: 0 10px;
     font-family: '8_bit', sans-serif;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* stile dell'energia accanto al pokemon */
+.energy-pokemon {
+    width: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.name-pokemon-card,
+.energy-pokemon {
+    margin: 5px;
 }
 
 /* stile generale delle immagini delle carte */
@@ -142,10 +156,7 @@ body {
     pointer-events: none;
 }
 
-.squirtle:hover,
-.charmander:hover,
-.bulbasaur:hover,
-.pikachu:hover {
+.box-card:hover {
     cursor: url('../assets/cursor/ultraball-cursor.cur'), auto;
 } 
 
