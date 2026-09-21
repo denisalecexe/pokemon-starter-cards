@@ -23,7 +23,7 @@
 /* UNIVERSAL TAG */
 * {
     box-sizing: border-box;
-    cursor: url('/src/assets/cursor/pokeball-cursor.cur'), auto;
+    cursor: url('../assets/cursor/pokeball-cursor.cur'), auto;
 }
 
 /* TAG ELEMENT */
@@ -60,7 +60,7 @@ body {
 }
 
 .logo:hover {
-    cursor: url('/src/assets/cursor/megaball-cursor.cur'), auto;
+    cursor: url('../assets/cursor/megaball-cursor.cur'), auto;
 }
 
 /* stile dell'header del body */
@@ -75,7 +75,6 @@ body {
 }
 
 .text-header-wrapper {
-    font-size: 20px;
     display: flex;
     align-items: center;
     font-family: '8_bit', sans-serif;
@@ -118,7 +117,6 @@ body {
 /* stile testo dei nomi dei pokemon */
 .name-pokemon-card {
     margin: 0 10px;
-    font-size: 18px;
     font-family: '8_bit', sans-serif;
     text-align: center;
 }
@@ -145,7 +143,7 @@ body {
 .charmander:hover,
 .bulbasaur:hover,
 .pikachu:hover {
-    cursor: url('/src/assets/cursor/ultraball-cursor.cur'), auto;
+    cursor: url('../assets/cursor/ultraball-cursor.cur'), auto;
 } 
 
 /* SCROLBAR CSS */
@@ -155,14 +153,14 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    cursor: url('/src/assets/cursor/pokeball-cursor.cur'), auto;
+    cursor: url('../assets/cursor/pokeball-cursor.cur'), auto;
     background: var(--bg-scrollbar-thumb);
     border: 1px solid var(--scrollbar-border);
     border-radius: 2px;
 }
 
 ::-webkit-scrollbar-track {
-    cursor: url('/src/assets/cursor/pokeball-cursor.cur'), auto;
+    cursor: url('../assets/cursor/pokeball-cursor.cur'), auto;
     background: var(--bg-scrollbar-track);
 }
 
@@ -170,11 +168,11 @@ body {
 /* FONT FACE 1 */
 @font-face {
     font-family: '8_bit';
-    src: url('/src/assets/font/8-bit-font/8-bit-font.woff');
+    src: url('../assets/font/8-bit-font/8-bit-font.woff');
 }
 
 /* FONT FACE 2 */
 @font-face {
     font-family: 'Pixel_Sans_Serif_Regular';
-    src: url('/src/assets/font/Pixel-Sans-Serif-Regular/Pixel-Sans-Serif-font.ttf');
+    src: url('../assets/font/Pixel-Sans-Serif-Regular/Pixel-Sans-Serif-font.ttf');
 }
