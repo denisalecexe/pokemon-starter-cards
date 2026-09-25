@@ -102,20 +102,32 @@ body {
 }
 
 /* stili specifici delle carte */
+.box-card {
+    background: linear-gradient(45deg, var(--color-1), var(--color-2), var(--color-3));
+}
+
 .squirtle {
-    background: linear-gradient(45deg, var(--bg-squirtle-1), var(--bg-squirtle-2), var(--bg-squirtle-3));
+    --color-1: var(--bg-squirtle-1);
+    --color-2: var(--bg-squirtle-2);
+    --color-3: var(--bg-squirtle-3);
 }
 
 .charmander {
-    background: linear-gradient(45deg, var(--bg-charmander-1), var(--bg-charmander-2), var(--bg-charmander-3));
+    --color-1: var(--bg-charmander-1);
+    --color-2: var(--bg-charmander-2);
+    --color-3: var(--bg-charmander-3);
 }
 
 .bulbasaur {
-    background: linear-gradient(45deg, var(--bg-bulbasaur-1), var(--bg-bulbasaur-2), var(--bg-bulbasaur-3));
+    --color-1: var(--bg-bulbasaur-1);
+    --color-2: var(--bg-bulbasaur-2);
+    --color-3: var(--bg-bulbasaur-3);
 }
 
 .pikachu {
-    background: linear-gradient(45deg, var(--bg-pikachu-1), var(--bg-pikachu-2), var(--bg-pikachu-3));
+    --color-1: var(--bg-pikachu-1);
+    --color-2: var(--bg-pikachu-2);
+    --color-3: var(--bg-pikachu-3);
 }
 
 /* stile testo dei nomi dei pokemon */
@@ -179,6 +191,60 @@ body {
 
 .energy-icon {
     width: 40px;
+}
+
+/* stile generale per il footer della carta */
+.footer-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* stile specifico per le statistiche dei pokemon */
+.stats {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Pixel_Sans_Serif_Regular', sans-serif;
+    font-size: 10px;
+    margin: 5px;
+    gap: 4px;
+}
+
+.stats img {
+    width: 32px;
+}
+
+.stats::after {
+    content: "";
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    background: #000;
+    left: 50%;
+    transform: translateX(-50%);
+    
+}
+
+.weakness,
+.retrat {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+/* stile specifico per le informazioni delle carte */
+.info-collection {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    font-family: 'Pixel_Sans_Serif_Regular', sans-serif;
+    font-size: 8px;
+    margin: 5px;
 }
 
 /* SCROLBAR CSS */
