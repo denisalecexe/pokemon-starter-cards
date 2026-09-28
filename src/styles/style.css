@@ -14,7 +14,8 @@
     --bg-pikachu-1: #ffe600;
     --bg-pikachu-2: #bdab09;
     --bg-pikachu-3: #a18a02;
-    --border-card: #fefffe;
+    --border-front-card: #fefffe;
+    --bg-retro-card: #121c38;
     --scrollbar-border: #fffe54;
     --bg-scrollbar-track: #3353b6;
     --bg-scrollbar-thumb: #eb3122;
@@ -88,17 +89,42 @@ body {
     gap: 10px;
 }
 
+/* stile del fronte e del retro della carta */
+/* fronte */
+.front-card {
+    border: 3px solid var(--border-front-card);
+    border-radius: inherit;
+}
+
+/* retro */
+.back-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.back-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    object-position: center;
+    display: block;
+}
+
 /* stile generale delle carte */
 .box-card {
+    position: relative;
     height: 430px;
     width: 300px;
-    border: 3px solid var(--border-card);
-    border-radius: 10px;
-    padding: 10px 5px;
+    border-radius: 15px;
     margin: 30px 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 /* stili specifici delle carte */
