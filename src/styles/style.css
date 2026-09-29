@@ -1,7 +1,9 @@
 :root {
     --header-bg: #0063e6;
     --bg-body-page: #cccccc;
-    --border-character: #eb1122;
+    --color-volume-1: #eb1122;
+    --color-volume-2: #f7f703;
+    --bi-icon: #00449c;
     --bg-squirtle-1: #23f5f5;
     --bg-squirtle-2: #0fbdbd;
     --bg-squirtle-3: #077e7e;
@@ -53,7 +55,59 @@ body {
     background: var(--bg-body-page);
 }
 
+/* stile specifico per l'input range del volume del sito */
+#volume-slider {
+    -webkit-appearance: none;
+    background: transparent;
+    width: 100%;
+}
+#volume-slider::-webkit-slider-runnable-track,
+#volume-slider::-webkit-slider-thumb {
+    border: 1px solid #000;
+}
+
+/* personalizzazione della barra dell'input range */
+#volume-slider::-webkit-slider-runnable-track {
+    background: var(--color-volume-1);
+    height: 8px;
+    border-radius: 10px;
+}
+
+/* personalizzazione del cursore (pallino) dell'input rage */
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: var(--color-volume-2);
+    height: 15px;
+    width: 15px;
+    margin-top: -4px;
+    border-radius:50%;
+}
+
+
 /* CLASS */
+/* Stile per il contenitore dei controlli del volume */
+.music-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+button {
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.bi-volume-up-fill {
+    color: var(--bi-icon);
+    padding: 10px;
+    margin: 0;
+    font-size: 35px;
+}
 /* stile specifico per il logo dell'header */
 .logo {
     max-width: 300px;
