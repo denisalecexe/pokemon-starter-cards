@@ -16,6 +16,9 @@ let lastVolume = volume.value;
 // variabile per la selezione del suono per l'effetto del flip della pagina
 const flip = document.getElementById("flipEffect");
 
+// selezione di tutte le card
+const card = document.querySelectorAll(".box-card");
+
 // impostazioni del volume iniziale 
 music.volume = 0.5;
 volume.value = 0.5;
@@ -83,6 +86,23 @@ pikachu.addEventListener("click", function() {
     soundEffect();
 })
 
+// evento per la gestione dei tasti di scelta delle carte
+document.addEventListener("keydown", function(e) {
+    if (e.key === "0") {
+        closeCards(squirtle);
+        soundEffect();
+    } else if (e.key === "1") {
+        closeCards(charmander);
+        soundEffect();
+    } else if (e.key === "2") {
+        closeCards(bulbasaur);
+        soundEffect();
+    } else if (e.key === "3") {
+        closeCards(pikachu);
+        soundEffect();
+    }
+});
+
 // evento gestione pulsante musica
 btn.addEventListener("click", function() {
     if(music.paused) {
@@ -106,7 +126,7 @@ btn.addEventListener("click", function() {
         music.pause();
         btn.className = "bi bi-volume-mute-fill"; // icona audio muta
     }
-});
+})
 
 // evento gestione slider volume
 volume.addEventListener("input", function() {
@@ -125,4 +145,4 @@ volume.addEventListener("input", function() {
             btn.className = "bi bi-volume-up-fill";
         }
     }
-});
+})
