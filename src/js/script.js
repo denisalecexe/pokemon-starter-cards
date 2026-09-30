@@ -25,11 +25,24 @@ flip.volume = 1;
 
 // CLICK FUNCTION
 // funzione generica per far si che sia scoperta una sola carta
-function closeCards() {
-    squirtle.classList.remove("is-flipped");
-    charmander.classList.remove("is-flipped");
-    bulbasaur.classList.remove("is-flipped");
-    pikachu.classList.remove("is-flipped");
+function closeCards(clickedCard) {
+    if(clickedCard !== squirtle) {
+        squirtle.classList.remove("is-flipped");
+    }
+
+    if(clickedCard !== charmander) {
+        charmander.classList.remove("is-flipped");
+    }
+
+    if(clickedCard !== bulbasaur) {
+        bulbasaur.classList.remove("is-flipped");
+    }
+
+    if(clickedCard !== pikachu) {
+        pikachu.classList.remove("is-flipped");
+    }
+
+    clickedCard.classList.toggle("is-flipped");
 }
 
 // funzione per l'effetto del flip della carta
@@ -40,36 +53,32 @@ function soundEffect() {
 
 // evento per il click della carta di squirtle
 squirtle.addEventListener("click", function() {
-    closeCards();
-    squirtle.classList.toggle("is-flipped");
-
+    // funzione per il flip della carta
+    closeCards(squirtle);
     // funzione per il suono della carta
     soundEffect();
 })
 
 // evento per il click della carta di charmander
 charmander.addEventListener("click", function() {
-    closeCards();
-    charmander.classList.toggle("is-flipped");
-
+    // funzione per il flip della carta
+    closeCards(charmander);
     // funzione per il suono della carta
     soundEffect();
 })
 
 // evento per il click della carta di bulbasaur
 bulbasaur.addEventListener("click", function() {
-    closeCards();
-    bulbasaur.classList.toggle("is-flipped");
-
+    // funzione per il flip della carta
+    closeCards(bulbasaur);
     // funzione per il suono della carta
     soundEffect();
 })
 
 // evento per il click della carta di pikachu
 pikachu.addEventListener("click", function() {
-    closeCards();
-    pikachu.classList.toggle("is-flipped");
-
+    // funzione per il flip della carta
+    closeCards(pikachu);
     //funzione per il suono della carta
     soundEffect();
 })
