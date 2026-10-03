@@ -20,6 +20,8 @@
     --scrollbar-border: #fffe54;
     --bg-scrollbar-track: #3353b6;
     --bg-scrollbar-thumb: #eb3122;
+    --button-starter: #5a99ec;
+    --bg-overlay: #000000b3;
 }
 
 /* UNIVERSAL TAG */
@@ -61,6 +63,7 @@ body {
     background: transparent;
     width: 100%;
 }
+
 #volume-slider::-webkit-slider-runnable-track,
 #volume-slider::-webkit-slider-thumb {
     border: 1px solid #000;
@@ -89,13 +92,28 @@ body {
     cursor: url('../assets/cursor/megaball-cursor.cur'), auto;
 }
 
+/* stile per l'overlay */
+#overlay {
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-overlay);
+}
+
 /* CLASS */
 /* Stile per il contenitore dei controlli del volume */
 .music-controls {
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 1000;
+    z-index: 99;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -131,7 +149,7 @@ button {
 }
 
 .character-header-wrapper {
-    width: 350px;
+    width: 250px;
 }
 
 .text-header-wrapper {
@@ -334,6 +352,26 @@ button {
     font-family: 'Pixel_Sans_Serif_Regular', sans-serif;
     font-size: 8px;
     margin: 5px;
+}
+
+/* classe per l'ingrandimento della carta */
+.zoomed {
+    z-index: 101;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* height: 560px;
+    width: 400px; */
+}
+
+/* stile per il bottone della scelta dello starter */
+.btn-starter {
+    background: var(--button-starter);
+    font-family: "8_bit", sans-serif;
+    font-size: 14px;
+    border: 2px solid black;
+    border-radius: 15px;
 }
 
 /* SCROLBAR CSS */

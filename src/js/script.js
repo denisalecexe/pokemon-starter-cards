@@ -13,21 +13,21 @@ const volume = document.getElementById("volumeSlider");
 // salvataggio della memoria del volume
 let lastVolume = volume.value;
 
-// variabile per la selezione del suono per l'effetto del flip della pagina
-const flip = document.getElementById("flipEffect");
-
-// selezione di tutte le card
-const card = document.querySelectorAll(".box-card");
-
 // impostazioni del volume iniziale 
 music.volume = 0.5;
 volume.value = 0.5;
+
+// variabile per la selezione del suono per l'effetto del flip della pagina
+const flip = document.getElementById("flipEffect");
+
+// variabile per l'overlay della carta
+const overlay = document.getElementById("overlay");
 
 // impostazioni fisse per il volume dell'effetto della carta
 flip.volume = 1;
 
 // CLICK FUNCTION
-// funzione generica per far si che sia scoperta una sola carta
+// funzione per far si che sia scoperta una sola carta
 function closeCards(clickedCard) {
     if(clickedCard !== squirtle) {
         squirtle.classList.remove("is-flipped");
@@ -46,6 +46,15 @@ function closeCards(clickedCard) {
     }
 
     clickedCard.classList.toggle("is-flipped");
+}
+
+// funzione per il dbclic della carta
+function openCards(dbClickedCard) {
+    if(dbClickedCard.classList.contains("zoomed") === true) {
+        overlay.style.display = "flex";
+    } else {
+        overlay.style.display = "none";
+    }
 }
 
 // funzione per l'effetto del flip della carta
@@ -145,4 +154,25 @@ volume.addEventListener("input", function() {
             btn.className = "bi bi-volume-up-fill";
         }
     }
+})
+
+// eventi gestione doppio clic card
+squirtle.addEventListener("dblclick", function() {
+    squirtle.classList.toggle("zoomed");
+    openCards(squirtle);
+})
+
+charmander.addEventListener("dblclick", function() {
+    charmander.classList.toggle("zoomed");
+    openCards(charmander);
+})
+
+bulbasaur.addEventListener("dblclick", function() {
+    bulbasaur.classList.toggle("zoomed");
+    openCards(bulbasaur);
+})
+
+pikachu.addEventListener("dblclick", function() {
+    pikachu.classList.toggle("zoomed");
+    openCards(pikachu);
 })
