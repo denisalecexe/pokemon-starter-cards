@@ -26,9 +26,30 @@ const overlay = document.getElementById("overlay");
 // impostazioni fisse per il volume dell'effetto della carta
 flip.volume = 1;
 
+// gestione dei tasti di scelta delle carte
+document.addEventListener("keydown", function(e) {
+    if (e.key === "0") {
+        closeCards(squirtle);
+        soundEffect();
+    } else if (e.key === "1") {
+        closeCards(charmander);
+        soundEffect();
+    } else if (e.key === "2") {
+        closeCards(bulbasaur);
+        soundEffect();
+    } else if (e.key === "3") {
+        closeCards(pikachu);
+        soundEffect();
+    }
+});
+
 // CLICK FUNCTION
 // funzione per far si che sia scoperta una sola carta
 function closeCards(clickedCard) {
+    if (overlay.style.display === "flex") {
+        return;
+    }
+
     if(clickedCard !== squirtle) {
         squirtle.classList.remove("is-flipped");
     }
@@ -52,13 +73,20 @@ function closeCards(clickedCard) {
 function openCards(dbClickedCard) {
     if(dbClickedCard.classList.contains("zoomed") === true) {
         overlay.style.display = "flex";
+        // gestione della scrollbar
+        document.body.style.overflow = "hidden";
     } else {
         overlay.style.display = "none";
+        document.body.style.overflow = "auto";
     }
 }
 
 // funzione per l'effetto del flip della carta
 function soundEffect() {
+    if (overlay.style.display === "flex") {
+        return;
+    }
+    
     flip.currentTime = 0;
     flip.play();
 }
@@ -94,23 +122,6 @@ pikachu.addEventListener("click", function() {
     //funzione per il suono della carta
     soundEffect();
 })
-
-// evento per la gestione dei tasti di scelta delle carte
-document.addEventListener("keydown", function(e) {
-    if (e.key === "0") {
-        closeCards(squirtle);
-        soundEffect();
-    } else if (e.key === "1") {
-        closeCards(charmander);
-        soundEffect();
-    } else if (e.key === "2") {
-        closeCards(bulbasaur);
-        soundEffect();
-    } else if (e.key === "3") {
-        closeCards(pikachu);
-        soundEffect();
-    }
-});
 
 // evento gestione pulsante musica
 btn.addEventListener("click", function() {
@@ -175,4 +186,14 @@ bulbasaur.addEventListener("dblclick", function() {
 pikachu.addEventListener("dblclick", function() {
     pikachu.classList.toggle("zoomed");
     openCards(pikachu);
+})
+
+// evento gestione quando si esce dall'overlay
+overlay.addEventListener("click", function() {
+    overlay.style.display = "none";
+    document.body.style.overflow = "auto";
+    squirtle.classList.remove("zoomed");
+    charmander.classList.remove("zoomed");
+    bulbasaur.classList.remove("zoomed");
+    pikachu.classList.remove("zoomed");
 })
