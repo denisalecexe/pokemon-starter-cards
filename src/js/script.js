@@ -20,11 +20,11 @@ volume.value = 0.5;
 // variabile per la selezione del suono per l'effetto del flip della pagina
 const flip = document.getElementById("flipEffect");
 
-// variabile per l'overlay della carta
-const overlay = document.getElementById("overlay");
-
 // impostazioni fisse per il volume dell'effetto della carta
 flip.volume = 1;
+
+// variabile per l'overlay della carta
+const overlay = document.getElementById("overlay");
 
 // gestione dei tasti di scelta delle carte
 document.addEventListener("keydown", function(e) {
@@ -69,16 +69,31 @@ function closeCards(clickedCard) {
     clickedCard.classList.toggle("is-flipped");
 }
 
-// funzione per il dbclic della carta
+// funzione per il dblclick della carta
 function openCards(dbClickedCard) {
-    if(dbClickedCard.classList.contains("zoomed") === true) {
-        overlay.style.display = "flex";
-        // gestione della scrollbar
-        document.body.style.overflow = "hidden";
-    } else {
-        overlay.style.display = "none";
-        document.body.style.overflow = "auto";
-    }
+    // svuota l'overlay per evitare che si accumulino vecchie carte se ne apri più di una
+    overlay.innerHTML = "";
+
+    // crea una copia esatta della carta cliccata (HTML e contenuto)
+    const cloneCard = dbClickedCard.cloneNode(true);
+    
+    // rimuove l'id dalla carta clonata (due elementi nella stessa pagina non devono mai avere lo stesso id)
+    cloneCard.removeAttribute("id");
+    
+    // aggiunge la classe .zoomed SOLO alla carta clonata, così l'originale rimane com'era sotto
+    cloneCard.classList.add("zoomed");
+
+    // questo mantiene l'overlay aperto se clicchi direttamente sulla carta ingrandita
+    cloneCard.addEventListener("click", function(e) {
+        e.stopPropagation();
+    });
+
+    // inserisce la carta clonata dentro l'overlay
+    overlay.appendChild(cloneCard);
+
+    // mostra l'overlay e blocca lo scroll della pagina sottostante
+    overlay.style.display = "flex";
+    document.body.style.overflow = "hidden";
 }
 
 // funzione per l'effetto del flip della carta
@@ -169,22 +184,18 @@ volume.addEventListener("input", function() {
 
 // eventi gestione doppio clic card
 squirtle.addEventListener("dblclick", function() {
-    squirtle.classList.toggle("zoomed");
     openCards(squirtle);
 })
 
 charmander.addEventListener("dblclick", function() {
-    charmander.classList.toggle("zoomed");
     openCards(charmander);
 })
 
 bulbasaur.addEventListener("dblclick", function() {
-    bulbasaur.classList.toggle("zoomed");
     openCards(bulbasaur);
 })
 
 pikachu.addEventListener("dblclick", function() {
-    pikachu.classList.toggle("zoomed");
     openCards(pikachu);
 })
 

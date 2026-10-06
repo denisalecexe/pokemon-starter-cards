@@ -101,7 +101,7 @@ body {
     z-index: 100;
     display: none;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     position: fixed;
     top: 0;
@@ -109,6 +109,7 @@ body {
     width: 100%;
     height: 100%;
     background: var(--bg-overlay);
+    gap: 20px;
 }
 
 /* CLASS */
@@ -368,12 +369,9 @@ button {
 /* classe per l'ingrandimento della carta */
 .zoomed {
     z-index: 101;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* height: 560px;
-    width: 400px; */
+    margin: 0 !important;
+    position: relative;
+    transform: scale(1.10);
 }
 
 /* stile per il bottone della scelta dello starter */
@@ -383,6 +381,8 @@ button {
     font-size: 14px;
     border: 2px solid black;
     border-radius: 15px;
+    padding: 10px 20px;
+    z-index: 101;
 }
 
 /* SCROLBAR CSS */
