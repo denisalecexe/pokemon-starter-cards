@@ -22,6 +22,11 @@
     --bg-scrollbar-thumb: #eb3122;
     --button-starter: #5a99ec;
     --bg-overlay: #000000b3;
+    --flash-pulse-1: #00ffff66;
+    --flash-pulse-2: #00ffff33;
+    --flash-pulse-3: #00ffffe6;
+    --flash-pulse-4: #00ffff99;
+    --flash-pulse-5: #00ffff66;
 }
 
 /* UNIVERSAL TAG */
@@ -208,6 +213,7 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    animation: flash-n-pulse 3s infinite alternate;
 }
 
 /* retro */
@@ -402,6 +408,25 @@ button {
 ::-webkit-scrollbar-track {
     cursor: url('../assets/cursor/pokeball-cursor.cur'), auto;
     background: var(--bg-scrollbar-track);
+}
+
+/* RULE KEY-FRAMES */
+/* keyframes selezione carta flash */
+@keyframes flash-n-pulse {
+    0% {
+        box-shadow: 0 0 5px var(--flash-pulse-1), 0 0 10px var(--flash-pulse-2);
+        filter: opacity(100%) brightness(100%);
+    }
+
+    50% {
+        box-shadow: 0 0 20px var(--flash-pulse-3);
+        filter: opacity(20%) brightness(200%);
+    }
+
+    100% {
+        box-shadow:0 0 40px var(--flash-pulse-4), 0 0 60px var(--flash-pulse-5);
+        filter: opacity(40%) brightness(120%);
+    }
 }
 
 /* RULE FONT-FACE CSS PER I FONT DEL SITO */
