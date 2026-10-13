@@ -7,13 +7,13 @@ const pikachu = document.getElementById("pikachu");
 
 // variabili che puntano alla personalizzazione specifica per la sezione della musica del sito
 const music = document.getElementById("musicWebsite");
-const btn = document.getElementById("btnMusic");
+const btnVolume = document.getElementById("btnMusic");
 const volume = document.getElementById("volumeSlider");
 
 // salvataggio della memoria del volume
 let lastVolume = volume.value;
 
-// impostazioni del volume iniziale 
+// impostazioni del volume iniziale
 music.volume = 0.5;
 volume.value = 0.5;
 
@@ -25,6 +25,9 @@ flip.volume = 1;
 
 // variabile per l'overlay della carta
 const overlay = document.getElementById("overlay");
+
+// variabile per il bottone della scelta della carta
+const btnSelection = document.getElementById("btn-starter");
 
 // gestione dei tasti di scelta delle carte
 document.addEventListener("keydown", function(e) {
@@ -69,10 +72,15 @@ function closeCards(clickedCard) {
     clickedCard.classList.toggle("is-flipped");
 }
 
-// funzione per il dblclick della carta
+// funzione per il dblclick della carta (gestione con il clone pulito)
 function openCards(dbClickedCard) {
     // svuota l'overlay per evitare che si accumulino vecchie carte se ne apri più di una
-    overlay.innerHTML = "";
+    // overlay.innerHTML = "";
+    const oldCard = overlay.querySelector(".box-card");
+    
+    if(oldCard) {
+        oldCard.remove();
+    }
 
     // crea una copia esatta della carta cliccata (HTML e contenuto)
     const cloneCard = dbClickedCard.cloneNode(true);
@@ -139,7 +147,7 @@ pikachu.addEventListener("click", function() {
 })
 
 // evento gestione pulsante musica
-btn.addEventListener("click", function() {
+btnVolume.addEventListener("click", function() {
     if(music.paused) {
         // se era in pausa, ripristina il volume salvato prima di mutare
         if (lastVolume == 0) {
@@ -150,7 +158,7 @@ btn.addEventListener("click", function() {
         volume.value = lastVolume;
 
         music.play();
-        btn.className = "bi bi-volume-up-fill"; // icona audio attiva
+        btnVolume.className = "bi bi-volume-up-fill"; // icona audio attiva
     } else {
         // se invece la musica sta suonando, salvare il valore prima di azzerare
         lastVolume = volume.value;
@@ -159,7 +167,7 @@ btn.addEventListener("click", function() {
         volume.value = 0;
 
         music.pause();
-        btn.className = "bi bi-volume-mute-fill"; // icona audio muta
+        btnVolume.className = "bi bi-volume-mute-fill"; // icona audio muta
     }
 })
 
@@ -170,19 +178,19 @@ volume.addEventListener("input", function() {
 
     if(volume.value == 0) {
         //se si porta la levetta a zero
-        btn.className = "bi bi-volume-mute-fill";
+        btnVolume.className = "bi bi-volume-mute-fill";
     } else {
         // se si sposta la levetta sopra lo zero, aggiornare la memoria
         lastVolume = volume.value;
 
         // se la musica sta suonando, impostare l'icona dell'audio in attiva
         if (!music.paused) {
-            btn.className = "bi bi-volume-up-fill";
+            btnVolume.className = "bi bi-volume-up-fill";
         }
     }
 })
 
-// eventi gestione doppio clic card
+// eventi gestione doppio clic card (chiamano la funzione openCards con il clone)
 squirtle.addEventListener("dblclick", function() {
     openCards(squirtle);
 })
@@ -203,8 +211,15 @@ pikachu.addEventListener("dblclick", function() {
 overlay.addEventListener("click", function() {
     overlay.style.display = "none";
     document.body.style.overflow = "auto";
-    squirtle.classList.remove("zoomed");
-    charmander.classList.remove("zoomed");
-    bulbasaur.classList.remove("zoomed");
-    pikachu.classList.remove("zoomed");
+    /* Nota: le classi zoomed originali sulle carte 
+    non servono più perché si usa il clone, 
+    ma lasciarle qui non dà alcun fastidio. */
+})
+
+btnSelection.addEventListener("click", function(e) {
+    // con questo si blocca la propagazione e si evita che il click chiuda l'overlay
+    e.stopPropagation();
+
+    // con questo invece si disattiva subito il bottone in modo definitivo dopo la scelta
+    btnSelection.disabled = true;
 })
