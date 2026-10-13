@@ -223,3 +223,4 @@ btnSelection.addEventListener("click", function(e) {
     // con questo invece si disattiva subito il bottone in modo definitivo dopo la scelta
     btnSelection.disabled = true;
 })
+
