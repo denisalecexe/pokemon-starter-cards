@@ -213,7 +213,6 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    animation: flash-n-pulse 3s infinite alternate;
 }
 
 /* retro */
@@ -392,6 +391,11 @@ button {
     transform: scale(1.10);
 }
 
+/* classe per l'animazione della carta scelta */
+.flashingCards {
+    animation: flash-n-pulse 0.2s infinite alternate;
+}
+
 /* SCROLBAR CSS */
 /* stile specifico per la scroll bar del sito */
 ::-webkit-scrollbar {
@@ -414,18 +418,18 @@ button {
 /* keyframes selezione carta flash */
 @keyframes flash-n-pulse {
     0% {
-        box-shadow: 0 0 5px var(--flash-pulse-1), 0 0 10px var(--flash-pulse-2);
+        box-shadow: 0 0 8px var(--flash-pulse-1), 0 0 10px var(--flash-pulse-2);
         filter: opacity(100%) brightness(100%);
     }
 
     50% {
-        box-shadow: 0 0 20px var(--flash-pulse-3);
-        filter: opacity(20%) brightness(200%);
+        box-shadow: 0 0 12px var(--flash-pulse-3);
+        filter: opacity(70%) brightness(200%);
     }
 
     100% {
-        box-shadow:0 0 40px var(--flash-pulse-4), 0 0 60px var(--flash-pulse-5);
-        filter: opacity(40%) brightness(120%);
+        box-shadow:0 0 15px var(--flash-pulse-4), 0 0 18px var(--flash-pulse-5);
+        filter: opacity(85%) brightness(120%);
     }
 }
 

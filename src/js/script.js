@@ -29,6 +29,9 @@ const overlay = document.getElementById("overlay");
 // variabile per il bottone della scelta della carta
 const btnSelection = document.getElementById("btn-starter");
 
+// variabile per l'evento del bottone in modo che si possa utilizzare il clone della carta
+let activeCardCloned = null;
+
 // gestione dei tasti di scelta delle carte
 document.addEventListener("keydown", function(e) {
     if (e.key === "0") {
@@ -84,6 +87,10 @@ function openCards(dbClickedCard) {
 
     // crea una copia esatta della carta cliccata (HTML e contenuto)
     const cloneCard = dbClickedCard.cloneNode(true);
+
+    /* assegna il clone creato alla variabile globale per renderlo 
+    accessibile anche all'interno dell'evento del bottone di selezione */
+    activeCardCloned = cloneCard;
     
     // rimuove l'id dalla carta clonata (due elementi nella stessa pagina non devono mai avere lo stesso id)
     cloneCard.removeAttribute("id");
@@ -217,6 +224,9 @@ overlay.addEventListener("click", function() {
 })
 
 btnSelection.addEventListener("click", function(e) {
+    // aggiunge alla carta scelta la classe per l'animazione (si attiva solo quando si clicca il bottone)
+    activeCardCloned.classList.add("flashingCards");
+
     // con questo si blocca la propagazione e si evita che il click chiuda l'overlay
     e.stopPropagation();
 
