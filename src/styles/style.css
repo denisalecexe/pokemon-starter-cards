@@ -58,7 +58,7 @@ body {
 }
 
 /* stile specifico per il contenuto della pagina */
-#body-page-content {
+#bodyPageContent {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
