@@ -32,6 +32,9 @@ const btnSelection = document.getElementById("btn-starter");
 // variabile per l'evento del bottone in modo che si possa utilizzare il clone della carta
 let activeCardCloned = null;
 
+// variabile per il suono dell'animazione della carta
+const starterJingle = new Audio("./assets/music/8bit_jingle/jingle.wav");
+
 // gestione dei tasti di scelta delle carte
 document.addEventListener("keydown", function(e) {
     if (e.key === "0") {
@@ -229,6 +232,10 @@ overlay.addEventListener("click", function() {
 })
 
 btnSelection.addEventListener("click", function(e) {
+    // aggiunge effettivamente il suono per l'animazione della carta
+    starterJingle.currentTime = 0; // azzera il jingle se per caso è stato avviato
+    starterJingle.play(); // fa partire la musica in sincrono con i 3 secondi del setTimeout
+
     // aggiunge alla carta scelta la classe per l'animazione (si attiva solo quando si clicca il bottone)
     activeCardCloned.classList.add("flashingCards");
 
@@ -238,11 +245,11 @@ btnSelection.addEventListener("click", function(e) {
     // con questo invece si disattiva subito il bottone in modo definitivo dopo la scelta
     btnSelection.disabled = true;
 
-    // impostazione di un timeout per l'animazione (10 secondi di tempo di animazione)
+    // impostazione di un timeout per l'animazione (3 secondi di tempo di animazione)
     setTimeout(function() {
         // variabile che aggancia la pagina in cui sono presenti le pagine e il testo
         const bodyPage = document.getElementById("bodyPageContent");
-        
+
         // questo va a ripulire tutto, tranne l'header
         bodyPage.innerHTML = "";
 
