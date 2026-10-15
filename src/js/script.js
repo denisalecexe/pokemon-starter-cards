@@ -77,6 +77,11 @@ function closeCards(clickedCard) {
 
 // funzione per il dblclick della carta (gestione con il clone pulito)
 function openCards(dbClickedCard) {
+    // condizione if per far si che il dbclick avvenga solo sul fronte della carta
+    if(!dbClickedCard.classList.contains("is-flipped")) {
+        return;
+    }
+
     // svuota l'overlay per evitare che si accumulino vecchie carte se ne apri più di una
     // overlay.innerHTML = "";
     const oldCard = overlay.querySelector(".box-card");
