@@ -241,11 +241,23 @@ btnSelection.addEventListener("click", function(e) {
         // questo va a ripulire tutto, tranne l'header
         bodyPage.innerHTML = "";
 
+        // rimuove la classe zoomed dalla carta clonata scelta
+        activeCardCloned.classList.remove("zoomed", "flashingCards");
+
         // questo farà apparire nella pagina la carta pokemon scelta
         bodyPage.innerHTML = `
-        <span class="text-header-wrapper">Your final choose:</span>
+        <div class="header-wrapper">
+            <img class="character-header-wrapper" src="./assets/img/character-pixel.png" alt="immagine di un allenatore standard pokemon in pixel art senza sfondo">
+            <span class="text-header-wrapper">Your final choose:</span>
+        </div>
         ${activeCardCloned.outerHTML}
         `
-    }, 5000)
+
+        // rimoszione dell'overlay
+        overlay.style.display = "none";
+
+        // fa ritornare la scrollbar
+        document.body.style.overflow = "auto";
+    }, 3000)
 })
 
